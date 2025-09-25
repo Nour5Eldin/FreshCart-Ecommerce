@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-const subLogo = ({className}:{className?:string}) => {
+const Logo = ({className}:{className?:string}) => {
   return (
     <Link href={"/"} className="inline-block">
      <Image src="/freshcartlogo.svg"  alt="logo" width={150} height={50}    className={cn("w-20", className)}  />
@@ -11,4 +11,4 @@ const subLogo = ({className}:{className?:string}) => {
   )
 }
 
-export default subLogo
+export default Logo
