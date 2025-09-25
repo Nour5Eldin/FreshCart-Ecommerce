@@ -1,7 +1,6 @@
 import { ShoppingCart } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import shopping from "@/images/shopping.png";
 import Image from "next/image";
 
 const EmptyCart = () => {
@@ -26,7 +25,7 @@ const EmptyCart = () => {
           className="relative w-48 h-48 mx-auto"
         >
           <Image
-            src={shopping}
+            src="/images/shopping.png"
             alt="Empty shopping cart"
             layout="fill"
             objectFit="contain"
