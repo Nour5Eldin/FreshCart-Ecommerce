@@ -1,20 +1,20 @@
 "use client";
-import Container from '@/components/common/Container';
-import Title from '@/components/common/Title';
-import { Brand, Category, Product } from '@/sanity.types'
-import { Filter, Loader2, X } from 'lucide-react';
-import { useState, useEffect } from 'react';
-import CategoryList from './CategoryList';
-import BrandList from './BrandList';
-import PriceList from './PriceList';
-import { client } from '@/sanity/lib/client';
-import ProductCard from '@/components/common/ProductCard';
-import { useSearchParams } from 'next/navigation';
-import NoProductAvailable from '@/components/common/NoProductAvailable';
+import { BRANDS_QUERYResult, Category, Product } from "@/sanity.types";
+import { client } from "@/sanity/lib/client";
+import React, { useEffect, useState } from "react";
+import Container from "@/components/common/Container";
+import Title from "@/components/common/Title";
+import CategoryList from "./CategoryList";
+import { Loader2, Filter, X } from "lucide-react";
+import ProductCard from "@/components/common/ProductCard";
+import NoProductAvailable from "@/components/common/NoProductAvailable";
+import BrandList from "./BrandList";
+import { useSearchParams } from "next/navigation";
+import PriceList from "./PriceList";
 
 interface Props {
   categories: Category[];
-  brands: Brand[];
+  brands: BRANDS_QUERYResult;
 }
 
 const Shop = ({ categories, brands }: Props) => {
@@ -41,7 +41,7 @@ const Shop = ({ categories, brands }: Props) => {
         minPrice = min;
         maxPrice = max;
       }
-       const query = `
+      const query = `
       *[_type == 'product' 
         && (!defined($selectedCategory) || references(*[_type == "category" && slug.current == $selectedCategory]._id))
         && (!defined($selectedBrand) || references(*[_type == "brand" && slug.current == $selectedBrand]._id))

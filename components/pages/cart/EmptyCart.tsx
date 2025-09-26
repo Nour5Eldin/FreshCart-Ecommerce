@@ -28,7 +28,7 @@ const EmptyCart = () => {
             src="/images/shopping.png"
             alt="Empty shopping cart"
             layout="fill"
-            objectFit="contain"
+            style={{ objectFit: "contain" }}
             className="drop-shadow-lg"
           />
           <motion.div
